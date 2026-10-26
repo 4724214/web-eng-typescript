@@ -1,30 +1,57 @@
-/*
-const productName: string = "キーボード";
-const unitPrice: number = 4800;
-const quantity: number = 2;
-const inStock: boolean = true;
-console.log(productName, unitPrice, quantity, inStock);
+const todos = [
+    { id: 1, title: "型を復習する", completed: true },
+    { id: 2, title: "配列を学ぶ", completed: false },
+    { id: 3, title: "レポートを書く", completed: false },
+];
 
-const subtotal = unitPrice * quantity;
-const taxRate = 0.1;
-const total = subtotal * (1 + taxRate);
-console.log(total);
+for (const todo of todos) {
+    const status = todo.completed ? "完了" : "未完了";
+    console.log(`${todo.id}: ${todo.title} [${status}]`);
+}
 
-const message = `${productName}を${quantity}個購入する`;
-const result = `税込合計は${total}円である`;
-console.log(message);
-console.log(result);
+const completedTodos = todos.filter((todo) =>{
+    return todo.completed;
+});
 
-// const unitPrice: number = "4800";
+console.log(completedTodos);
 
-*/
+const titles = todos.map((todo) => {
+    return todo.title;
+});
 
-const courseName = "Web Engineering"
-let retryCount = 1
+console.log(titles);
 
-// courseName = "foo"
+const completedBefore = todos.filter((todo) => todo.completed).length;
 
-retryCount = 2
+for (const todo of todos){
+    if (todo.id === 2){
+        todo.completed = true;
+        console.log(`更新後: ${todo.title} [完了]`);
+    }
+}
 
-console.log(`これはテンプレートリテラルです。${courseName}、${retryCount}`)
+const completedAfter = todos.filter((todo) => todo.completed).length;
+console.log(`完了件数: 更新前 ${completedBefore}件 -> 更新後 ${completedAfter}件`);
 
+
+const myTodos = [
+    { id: 1, title: "レポート", completed: true },
+    { id: 2, title: "小テスト", completed: false },
+    { id: 3, title: "期末試験", completed: false },
+    { id: 4, title: "プレゼンテーション", completed: false },
+];
+
+const isCompletedBefore = myTodos.filter((todo) => todo.completed).length;
+
+console.log(isCompletedBefore);
+
+for (const myTodo of myTodos){
+    if(myTodo.completed === false){
+        myTodo.completed = true;
+        console.log(`更新後: ${myTodo.title} [完了]`);
+    }
+}
+
+const isCompletedAfter = myTodos.filter((todo) => todo.completed).length;
+
+console.log(isCompletedAfter);
